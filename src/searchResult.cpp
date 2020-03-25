@@ -44,7 +44,7 @@ void SearchResult::showResultQueue(){
 /*Show the result of search final*/
 void SearchResult::showResult(Content cont){
     std::cout << "[" << "Thread " << _id_thread << " start: " << _start_line;
-    std::cout << " - finish: " << _end_line << "]";
+    std::cout << " - end: " << _end_line << "]";
     std::cout << " :: " << "line " << cont.nline << " :: ";
     std::cout << "... " << cont.line_prev << " ";
     std::cout << YELLOW << cont.word << RESET << " ";

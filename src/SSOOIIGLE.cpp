@@ -38,7 +38,7 @@ std::vector<std::string>    divisionLine(std::string line);
 std::string                 changeToLowercaseAndEraseSimbols(std::string line); 
 int                         countFileLines(std::string filename);  
 void                        messageWelcome(); 
-void                        messageFinish();
+void                        messageEnd();
 void                        divisionLinesAndCreateThreads(int num_threads, int num_lines, std::string file_name, std::string word_search); 
 void                        createThreads(); 
 void                        obtainWordsLine(int id_thread, std::string file_name, std::string word_search);
@@ -77,7 +77,7 @@ int main(int argc, char* argv[]){
     divisionLinesAndCreateThreads(num_threads, num_lines, file_name, word_search); 
     waitThreadsEnd(); 
     numWords(word_search); 
-    messageFinish();
+    messageEnd();
 
     return EXIT_SUCCESS; 
 
@@ -96,15 +96,15 @@ void messageWelcome(){
 }
 
 /******************************************************
- * Function name:    messageFinish
+ * Function name:    messageEnd
  h
  * Date created:     16/3/2020
  * Input arguments: 
  * Purpose:          Show a goodbye message of our searcher SSOOIIGLE
  * 
  ******************************************************/
-void messageFinish(){
-    std::cout << "FINISH TO SEARCHER" << BOLDBLUE << " SS" << BOLDRED << "O" << BOLDYELLOW << "O";
+void messageEnd(){
+    std::cout << "END OF THE SEARCHER" << BOLDBLUE << " SS" << BOLDRED << "O" << BOLDYELLOW << "O";
     std::cout << BOLDBLUE << "II" << BOLDGREEN << "GL" << BOLDRED << "E" << RESET << std::endl; 
 }
 
@@ -316,5 +316,5 @@ void waitThreadsEnd(){
 void numWords(std::string word_search){
     std::lock_guard<std::mutex> lk(g_sem); 
     std::cout << "\nThe word " << CYAN <<  word_search << RESET;
-    std::cout << " appear in file " << CYAN << g_total  << " times\n" << RESET << std::endl; 
+    std::cout << " appear in file " << CYAN << g_total << " times\n" << RESET << std::endl; 
 }
